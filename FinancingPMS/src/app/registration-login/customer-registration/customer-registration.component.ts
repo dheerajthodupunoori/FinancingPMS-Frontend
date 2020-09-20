@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { RegisterCustomer } from "../Models/customer-register";
-import { FirmService } from "../Services/FirmService";
-import { CustomerRegistrationStatusEnum } from "../Enums/CustomerRegistrationValidationStatusEnum";
-import { RegisterService } from "../Services/register.service";
-import { FileUploadOperationsService } from "../Services/FileUploadService";
+import { RegisterCustomer } from "../../Models/customer-register";
+import { FirmService } from "../../Services/FirmService";
+import { CustomerRegistrationStatusEnum } from "../../Enums/CustomerRegistrationValidationStatusEnum";
+import { RegisterService } from "../../Services/register.service";
+import { FileUploadOperationsService } from "../../Services/FileUploadService";
 import { HttpEventType } from "@angular/common/http";
 import { Router } from "@angular/router";
 // import {Tesseract} from 'tesseract.js'

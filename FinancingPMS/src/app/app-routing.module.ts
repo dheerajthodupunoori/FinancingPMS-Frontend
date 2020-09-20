@@ -1,11 +1,26 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { LandingPageComponent } from "./landing-page/landing-page.component";
+import { AuthGuard } from "./auth-guards/authguard";
 
-
-const routes: Routes = [];
+const appRoutes: Routes = [
+  { path: "", component: LandingPageComponent },
+  // {
+  //   path: "owner-dashboard/:firmId",
+  //   component: OwnerDashboardComponent,
+  // },
+  {
+    path: "owner-dashboard/:firmId",
+    loadChildren: () =>
+      import("./owner-dashboard/owner-dashboard.module").then(
+        (m) => m.DashboardModule
+      ),
+    canActivate: [AuthGuard],
+  },
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(appRoutes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
