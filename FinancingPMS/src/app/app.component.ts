@@ -1,17 +1,44 @@
 import { Component } from "@angular/core";
 import { LoginService } from "./Services/login.service";
-
+import { slideInAnimation } from "./app.animation";
+import {
+  Event,
+  NavigationStart,
+  NavigationEnd,
+  NavigationError,
+  NavigationCancel,
+  Router,
+} from "@angular/router";
+import { Route } from "@angular/compiler/src/core";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
+  animations: [slideInAnimation],
 })
 export class AppComponent {
   title = "FinancingPMS";
 
   public loginStatus: boolean;
 
-  constructor(private _loginService: LoginService) {}
+  public loading: boolean = true;
+
+  constructor(private _loginService: LoginService, private _router: Router) {
+    this._router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationStart) {
+        console.log(event);
+        this.loading = true;
+      }
+      if (
+        event instanceof NavigationCancel ||
+        event instanceof NavigationEnd ||
+        event instanceof NavigationError
+      ) {
+        console.log(event);
+        this.loading = false;
+      }
+    });
+  }
   ngOnInit() {
     // this.loginStatus = Boolean(localStorage.getItem("loginStatus"));
     // this._loginService.loginStatusSubject.subscribe((data) => {

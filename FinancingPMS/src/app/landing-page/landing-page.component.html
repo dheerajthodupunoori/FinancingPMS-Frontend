@@ -31,7 +31,10 @@
         </button>
         <span>OR</span>
         <button
-          routerLink="customer-login"
+          [routerLink]="[
+            'customer-login',
+            { message: 'Welcome to Login Page' }
+          ]"
           type="button"
           class="btn btn-secondary btn-lg btn-block"
         >
