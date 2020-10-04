@@ -4,8 +4,7 @@ import { FirmService } from "../../Services/FirmService";
 import { CustomerRegistrationStatusEnum } from "../../Enums/CustomerRegistrationValidationStatusEnum";
 import { RegisterService } from "../../Services/register.service";
 import { FileUploadOperationsService } from "../../Services/FileUploadService";
-import { HttpEventType } from "@angular/common/http";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 // import {Tesseract} from 'tesseract.js'
 
 @Component({
@@ -29,6 +28,8 @@ export class CustomerRegistrationComponent implements OnInit {
 
   public firmDropdownListItems: any[];
 
+  public resolvedFirmData: any;
+
   public isDropdownError: boolean = false;
 
   public dropdownErrorMessage: string;
@@ -49,27 +50,41 @@ export class CustomerRegistrationComponent implements OnInit {
     private _firmService: FirmService,
     private _registerService: RegisterService,
     private _fileUploadService: FileUploadOperationsService,
-    private router: Router
+    private router: Router,
+    private _activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this._firmService.getAllFirms().subscribe(
-      (result) => {
-        console.log(
-          "all firm details in customer-registration-component",
-          result
-        );
-        this.firmDropdownListItems = result;
-        this.details.FirmID = result[0].id;
-        console.log("firmDropdownListItems", this.firmDropdownListItems);
-        // console.log("registration details of customer" ,  this.details);
-      },
-      (error) => {
-        console.log(error);
-        this.isDropdownError = true;
-        this.dropdownErrorMessage = error.message;
-      }
-    );
+    //reading route resolver data
+    this.resolvedFirmData = this._activatedRoute.snapshot.data[
+      "resolvedFirmsList"
+    ];
+    console.log(this.resolvedFirmData);
+    if (this.resolvedFirmData.FirmsList) {
+      this.firmDropdownListItems = this.resolvedFirmData.FirmsList;
+      this.details.FirmID = this.resolvedFirmData.FirmsList[0].id;
+    } else {
+      this.isDropdownError = true;
+      this.dropdownErrorMessage = this.resolvedFirmData.resolverErrorMessage.message;
+    }
+
+    // this._firmService.getAllFirms().subscribe(
+    //   (result) => {
+    //     // console.log(
+    //     //   "all firm details in customer-registration-component",
+    //     //   result
+    //     // );
+    //     this.firmDropdownListItems = result;
+    //     this.details.FirmID = result[0].id;
+    //     // console.log("firmDropdownListItems", this.firmDropdownListItems);
+    //     // console.log("registration details of customer" ,  this.details);
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //     this.isDropdownError = true;
+    //     this.dropdownErrorMessage = error.message;
+    //   }
+    // );
   }
 
   handleFileInput(files: any) {
@@ -134,7 +149,10 @@ export class CustomerRegistrationComponent implements OnInit {
             data
           );
           if (data) {
-            this.router.navigate(["customer-login"]);
+            this.router.navigate([
+              "customer-login",
+              { message: "Welcome to Login Page" },
+            ]);
           }
         },
         (error) => {

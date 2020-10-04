@@ -8,7 +8,7 @@ import {
 } from "@angular/forms";
 import { CustomerLogin } from "../../Models/customer-login";
 import { LoginService } from "../../Services/login.service";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-customer-login",
@@ -32,10 +32,13 @@ export class CustomerLoginComponent implements OnInit {
 
   public loginErrorMessage: string;
 
+  private customerLoginTitle: string;
+
   constructor(
     private fb: FormBuilder,
     private _loginService: LoginService,
-    private router: Router
+    private router: Router,
+    private _activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
@@ -56,6 +59,13 @@ export class CustomerLoginComponent implements OnInit {
       console.log(this.customerLoginForm);
     });
     console.log(this.customerLoginForm);
+
+    let optionalMessage = this._activatedRoute.snapshot.paramMap.get("message");
+    this.customerLoginTitle = this._activatedRoute.snapshot.data[
+      "customerLoginTitle"
+    ];
+    console.log(optionalMessage);
+    console.log(this.customerLoginTitle);
   }
 
   LoginCustomer() {

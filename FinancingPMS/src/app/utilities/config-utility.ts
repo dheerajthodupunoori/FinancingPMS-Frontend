@@ -14,7 +14,7 @@ import {
 export class ConfigUtility {
   static GetURL(operationType: any): string {
     if (environment.useLocalURL) {
-      console.log(operationType);
+      // console.log(operationType);
       switch (operationType) {
         case FileUpload.AadhaarUpload:
           return FileUploadConfigLocal.aadhaarUploadForCustomerRegistrationURL;

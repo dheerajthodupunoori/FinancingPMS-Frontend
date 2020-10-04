@@ -8,6 +8,8 @@ import { CustomerLoginComponent } from "./customer-login/customer-login.componen
 import { CustomerRegistrationComponent } from "./customer-registration/customer-registration.component";
 import { CustomerAdditionalDetailsComponent } from "./customer-additional-details/customer-additional-details.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FirmResolver } from "./route-resolvers/firms-list-resolver.service";
+import { ConfirmPassword } from "../validators/password-confirmpwd-validator";
 
 const registrationLoginModuleRoutes: Routes = [
   { path: "register-firm", component: FirmRegistrationComponent },
@@ -22,10 +24,12 @@ const registrationLoginModuleRoutes: Routes = [
   {
     path: "customer-login",
     component: CustomerLoginComponent,
+    data: { customerLoginTitle: "Login to your Account" },
   },
   {
     path: "register-customer",
     component: CustomerRegistrationComponent,
+    resolve: { resolvedFirmsList: FirmResolver },
   },
   {
     path: "customer-additional-details/:customerId",
@@ -41,6 +45,7 @@ const registrationLoginModuleRoutes: Routes = [
     CustomerLoginComponent,
     CustomerAdditionalDetailsComponent,
     CustomerRegistrationComponent,
+    ConfirmPassword,
   ],
   imports: [
     CommonModule,
