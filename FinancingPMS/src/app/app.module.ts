@@ -12,11 +12,11 @@ import { MatMenuModule } from "@angular/material/menu";
 import { JwtModule } from "@auth0/angular-jwt";
 import { AuthGuard } from "./auth-guards/authguard";
 import { NavbarComponent } from "./navbar/navbar.component";
-import { ConfirmPassword } from "./validators/password-confirmpwd-validator";
 import { AadhaarValidator } from "./validators/aadhar-validator";
 import { EmailValidator } from "./validators/email-validator";
 import { DOBValidator } from "./validators/dob-validator";
 import { RegistrationLoginModule } from "../app/registration-login/registration-login.module";
+import { NotificationModule } from "./notification/notification.module";
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -44,6 +44,7 @@ export function tokenGetter() {
     MatMenuModule,
     RegistrationLoginModule,
     AppRoutingModule,
+    NotificationModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

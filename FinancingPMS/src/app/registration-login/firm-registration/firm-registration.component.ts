@@ -11,6 +11,8 @@ import { Router } from "@angular/router";
 export class FirmRegistrationComponent implements OnInit {
   public firm: Firm = new Firm("", "", "", "", "", "");
 
+  public OriginalFirm: Firm;
+
   public registrationStatus: boolean;
 
   public firmRegistrationErrorMessage: string;
@@ -22,7 +24,9 @@ export class FirmRegistrationComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.Firm = this.firm;
+  }
 
   get diagnostic() {
     return JSON.stringify(this.firm);
@@ -36,6 +40,14 @@ export class FirmRegistrationComponent implements OnInit {
   //       event.preventDefault();
   //     }
   // }
+
+  get Firm(): Firm {
+    return this.firm;
+  }
+
+  set Firm(value: Firm) {
+    this.OriginalFirm = { ...value };
+  }
 
   async RegisterFirm() {
     await this.registerService.registerService(this.firm).subscribe((data) => {
