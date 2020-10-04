@@ -10,9 +10,14 @@ import { CustomerAdditionalDetailsComponent } from "./customer-additional-detail
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FirmResolver } from "./route-resolvers/firms-list-resolver.service";
 import { ConfirmPassword } from "../validators/password-confirmpwd-validator";
+import { UnsavedChangesGuard } from "../auth-guards/unsaved-changes.guard";
 
 const registrationLoginModuleRoutes: Routes = [
-  { path: "register-firm", component: FirmRegistrationComponent },
+  {
+    path: "register-firm",
+    component: FirmRegistrationComponent,
+    canDeactivate: [UnsavedChangesGuard],
+  },
   {
     path: "login",
     component: LoginComponent,
@@ -53,5 +58,6 @@ const registrationLoginModuleRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(registrationLoginModuleRoutes),
   ],
+  providers: [UnsavedChangesGuard],
 })
 export class RegistrationLoginModule {}

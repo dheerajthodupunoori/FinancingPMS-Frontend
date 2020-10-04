@@ -32,7 +32,7 @@ export class CustomerLoginComponent implements OnInit {
 
   public loginErrorMessage: string;
 
-  private customerLoginTitle: string;
+  public customerLoginTitle: string;
 
   constructor(
     private fb: FormBuilder,

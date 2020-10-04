@@ -9,7 +9,6 @@ import {
   NavigationCancel,
   Router,
 } from "@angular/router";
-import { Route } from "@angular/compiler/src/core";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -23,10 +22,10 @@ export class AppComponent {
 
   public loading: boolean = true;
 
-  constructor(private _loginService: LoginService, private _router: Router) {
+  constructor(private _router: Router) {
     this._router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
-        console.log(event);
+        // console.log(event);
         this.loading = true;
       }
       if (
@@ -34,7 +33,7 @@ export class AppComponent {
         event instanceof NavigationEnd ||
         event instanceof NavigationError
       ) {
-        console.log(event);
+        // console.log(event);
         this.loading = false;
       }
     });
