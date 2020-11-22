@@ -1,8 +1,10 @@
+import {APPCONFIG}  from "./config";
+
 export const FileUploadConfigLocal = {
-    aadhaarUploadForCustomerRegistrationURL :
-    "http://localhost:5000/api/AzureBlobOperations​/UploadAadhaarImageToAzureBlobContainer"
+    aadhaarUploadForCustomerRegistrationURL : APPCONFIG.localhostURL +
+    "api/AzureBlobOperations​/UploadAadhaarImageToAzureBlobContainer"
 }
 
 export const FileUploadConfigServer = {
-    aadhaarUploadForCustomerRegistrationURL : ""
+    aadhaarUploadForCustomerRegistrationURL : APPCONFIG.defaultURL + "api/AzureBlobOperations​/UploadAadhaarImageToAzureBlobContainer"
 }

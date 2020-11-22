@@ -1,9 +1,11 @@
+import {APPCONFIG} from './config';
+
 export const LoginConfigLocal = {
-  customerLoginURL: "http://localhost:5000/api/Login/customerLogin",
-  firmloginURL: "http://localhost:5000/api/Login",
+  customerLoginURL: APPCONFIG.localhostURL +"api/Login/customerLogin",
+  firmloginURL: APPCONFIG.localhostURL+ "api/Login",
 };
 
 export const LoginConfigServer = {
-  customerLoginURL: "",
-  firmloginURL: "",
+  customerLoginURL: APPCONFIG.defaultURL + "api/Login/customerLogin",
+  firmloginURL: APPCONFIG.defaultURL + "api/Login",
 };

@@ -40,7 +40,7 @@ export class LoginService {
 
   updateLoginStatus(loginStatus: string) {
     sessionStorage.setItem("loginStatus", loginStatus);
-    this.loginStatus.next(Boolean(sessionStorage.getItem("loginStatus")));
+    this.loginStatus.next(sessionStorage.getItem("loginStatus") == "true");
   }
 
   loginCustomer(customerLogin: any): Observable<any> {

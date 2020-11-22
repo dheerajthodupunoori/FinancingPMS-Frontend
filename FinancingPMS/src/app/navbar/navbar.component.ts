@@ -19,7 +19,6 @@ export class NavbarComponent implements OnInit {
   }
 
   Logout() {
-    // this._loginService.updateLoginStatus("false");
     sessionStorage.clear();
   }
 }

@@ -1,7 +1,9 @@
+import {APPCONFIG}  from "./config";
+
 export const FirmConfigLocal = {
-  getAllFirms: "http://localhost:5000/api/Firm",
+  getAllFirms: APPCONFIG.localhostURL +  "api/Firm",
 };
 
 export const FirmConfigServer = {
-  getAllFirms: "",
+  getAllFirms: APPCONFIG.defaultURL + "api/Firm",
 };

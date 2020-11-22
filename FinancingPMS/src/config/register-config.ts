@@ -1,15 +1,17 @@
+import {APPCONFIG}  from "./config";
+
 export const RegisterConfigLocal = {
-  firmRegistrationURL: "http://localhost:5000/api/Registration",
-  saveFirmAdditionalDetailsURL:
-    "http://localhost:49366/api/Registration/saveFirmDetails",
+  firmRegistrationURL: APPCONFIG.localhostURL + "api/Registration",
+  saveFirmAdditionalDetailsURL: APPCONFIG.localhostURL +
+    "api/Registration/saveFirmDetails",
   customerRegistrationToFirmURL:
-    "http://localhost:5000/api/CustomerRegistration/PerformCustomerRegistration",
-  saveCustomerAdditinalDetailsURL:
-    "http://localhost:5000/api/CustomerRegistration/saveCustomerAdditionalDetails",
+    APPCONFIG.localhostURL +  "api/CustomerRegistration/PerformCustomerRegistration",
+  saveCustomerAdditinalDetailsURL: APPCONFIG.localhostURL +
+    "api/CustomerRegistration/saveCustomerAdditionalDetails",
 };
 export const RegisterConfigServer = {
-  firmRegistrationURL: "",
-  saveFirmAdditionalDetailsURL: "",
-  customerRegistrationToFirmURL: "",
-  saveCustomerAdditinalDetailsURL: "",
+  firmRegistrationURL:  "",
+  saveFirmAdditionalDetailsURL: APPCONFIG.defaultURL + "api/Registration/saveFirmDetails",
+  customerRegistrationToFirmURL:  APPCONFIG.defaultURL +"api/CustomerRegistration/PerformCustomerRegistration",
+  saveCustomerAdditinalDetailsURL: APPCONFIG.defaultURL + "api/CustomerRegistration/saveCustomerAdditionalDetails",
 };

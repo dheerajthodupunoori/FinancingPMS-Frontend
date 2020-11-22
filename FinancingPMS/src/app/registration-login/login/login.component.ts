@@ -18,9 +18,7 @@ export class LoginComponent implements OnInit {
     this._loginService.login(loginData).subscribe(
       (response) => {
         console.log(response);
-        // localStorage.setItem("jwt", response.jsonToken);
         sessionStorage.setItem("jwt", response.jsonToken);
-        //  localStorage.setItem("loginStatus" , response.loginStatus);
         this._loginService.updateLoginStatus(response.loginStatus);
         if (
           response.loginStatus == true &&
