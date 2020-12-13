@@ -8,6 +8,9 @@ import { CreateCustomerComponent } from "../create-customer/create-customer.comp
 import { CreateAgreementComponent } from "../create-agreement/create-agreement.component";
 import { ActiveAccountsComponent } from "../active-accounts/active-accounts.component";
 import { LoanTypesComponent } from "../loan-types/loan-types.component";
+import {  MatIconModule, MatSidenavModule, MatListModule, MatButtonModule } from "@angular/material";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -17,10 +20,15 @@ import { LoanTypesComponent } from "../loan-types/loan-types.component";
     CreateCustomerComponent,
     CreateAgreementComponent,
     ActiveAccountsComponent,
-    LoanTypesComponent,
+    LoanTypesComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    MatSidenavModule,
+    MatListModule,
+    MatButtonModule,
+    MatIconModule,
     RouterModule.forChild([
       {
         path: "",

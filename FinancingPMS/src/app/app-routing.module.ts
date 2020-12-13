@@ -15,7 +15,7 @@ const appRoutes: Routes = [
       import("./owner-dashboard/owner-dashboard.module").then(
         (m) => m.DashboardModule
       ),
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
 ];
 

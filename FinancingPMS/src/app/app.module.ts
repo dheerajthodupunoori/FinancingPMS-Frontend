@@ -7,7 +7,6 @@ import { FooterComponent } from "./footer/footer.component";
 import { LandingPageComponent } from "./landing-page/landing-page.component";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatMenuModule } from "@angular/material/menu";
 import { JwtModule } from "@auth0/angular-jwt";
 import { AuthGuard } from "./auth-guards/authguard";
@@ -40,7 +39,6 @@ export function tokenGetter() {
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSidenavModule,
     MatMenuModule,
     RegistrationLoginModule,
     AppRoutingModule,

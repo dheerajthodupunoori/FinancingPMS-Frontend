@@ -1,17 +1,17 @@
 <div>
-  <app-navbar></app-navbar>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-10">
-        <div style="margin-top: 75px; margin-bottom: 75px">
-          <span class="fa fa-spinner spinner" *ngIf="loading"> </span>
-          <router-outlet></router-outlet>
-        </div>
-      </div>
-      <div class="col-md-2" style="margin-top: 75px; margin-bottom: 75px">
-        <router-outlet name="notifications"></router-outlet>
-      </div>
+    <app-navbar></app-navbar>
+    <!-- <div class="container"> -->
+    <!-- <div class="row"> -->
+    <!-- <div class="col-md-10"> -->
+    <div style="margin-top: 75px;">
+        <span class="fa fa-spinner spinner" *ngIf="loading"> </span>
+        <router-outlet></router-outlet>
     </div>
-  </div>
-  <!-- <app-footer></app-footer> -->
+    <!-- </div> -->
+    <!-- <div class="col-md-2" style="margin-top: 75px; margin-bottom: 75px">
+        <router-outlet name="notifications"></router-outlet>
+      </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- <app-footer></app-footer> -->
 </div>
