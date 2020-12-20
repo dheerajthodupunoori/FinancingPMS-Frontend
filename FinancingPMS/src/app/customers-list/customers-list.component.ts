@@ -34,7 +34,7 @@ export class CustomersListComponent implements OnInit {
     this.customers = customers;
   }
 
-  openModal(customerID : string , operation : string){
+  openModal(customerID : string , operation : string=""){
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
