@@ -5,10 +5,6 @@ import { AuthGuard } from "./auth-guards/authguard";
 
 const appRoutes: Routes = [
   { path: "", component: LandingPageComponent },
-  // {
-  //   path: "owner-dashboard/:firmId",
-  //   component: OwnerDashboardComponent,
-  // },
   {
     path: "owner-dashboard/:firmId",
     loadChildren: () =>

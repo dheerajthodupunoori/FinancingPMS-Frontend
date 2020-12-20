@@ -1,1 +1,64 @@
-<p>customers-list works!</p>
+<section>
+<table datatable [dtOptions]="dtOptions" style="width: 100%;">
+    <thead>
+        <tr>
+          <th>Profile</th>
+          <th>Customer ID</th>
+          <th>Name</th>
+          <th>Firm ID</th> 
+          <th>Contact</th>
+          <th>Email ID</th> 
+          <th>Aadhaar Number</th>
+          <th>Update Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let row of customers.default">
+           <td><img src={{row.profile}} style="width: 100px;"></td>
+           <td><button mat-raised-button id="owner-customer-additional-details-modal" class="btn btn-primary" (click)="openModal(row.CustomerID , 'VIEW')">{{row.CustomerID}}</button></td>
+           <td>{{row.Name}}</td>
+           <td>{{row.FirmID}}</td>
+           <td>{{row.phone}}</td>
+           <td>{{row.EmailID}}</td>
+           <td>{{row.AadhaarNumber}}</td>
+           <td>
+               <button class="btn btn-secondary" style="margin: 10px;" (click)="openModal(row.CustomerID , 'EDIT')">Edit</button>
+               <button class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+    </tbody>
+</table>
+</section>
+
+
+<br/><br/>
+<button class="btn btn-info" (click)="viewDeletedCustomersEvent()" *ngIf="isViewDeletedCustomersEnabled">View Deleted Customers</button>
+<button class="btn btn-info" style="float: right;" (click)="closeDeletedCustomersEvent()" *ngIf="isCloseDeletedCustomersEnabled">Close Deleted Customers</button>
+<br/><br/>
+<section id="deletedCustomers" *ngIf = "viewDeletedCustomers">
+<table datatable [dtOptions]="dtOptions" style="width: 100%;">
+    <thead>
+        <tr>
+          <th>Profile</th>
+          <th>Customer ID</th>
+          <th>Name</th>
+          <th>Firm ID</th> 
+          <th>Contact</th>
+          <th>Email ID</th> 
+          <th>Aadhaar Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let row of customers.default">
+           <td><img src={{row.profile}} style="width: 100px;"></td>
+           <td><button mat-raised-button id="owner-customer-additional-details-modal" class="btn btn-primary" (click)="openModal(row.CustomerID)">{{row.CustomerID}}</button></td>
+           <td>{{row.Name}}</td>
+           <td>{{row.FirmID}}</td>
+           <td>{{row.phone}}</td>
+           <td>{{row.EmailID}}</td>
+           <td>{{row.AadhaarNumber}}</td>
+          </tr>
+    </tbody>
+</table>
+</section>
+

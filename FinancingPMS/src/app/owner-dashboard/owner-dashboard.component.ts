@@ -9,7 +9,7 @@ import { ActivatedRoute } from "@angular/router";
 export class OwnerDashboardComponent implements OnInit {
   public firmId: String = "";
 
-  opened = true;
+  opened = false;
 
   constructor(private route: ActivatedRoute) {}
 

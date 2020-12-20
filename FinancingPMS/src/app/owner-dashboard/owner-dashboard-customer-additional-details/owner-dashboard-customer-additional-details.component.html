@@ -1,0 +1,253 @@
+<form (ngSubmit)="updateDetails()" [formGroup]="detailsForm">
+
+    <!-- <fieldset disabled="disabled"> -->
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        
+        <div class="col-md-4">
+        <strong class="customer-registration-heading">Customer Details</strong>
+        </div>
+
+        <div class="col-md-4">
+        </div>
+    </div>
+
+    <br/><br/>
+<div class="row">
+<div class="col-md-4 col-sm-4 col-lg-4">
+    <div class="form-group">
+        <label for="customerID">CustomerID</label>
+        <input
+          type="text"
+          class="form-control"
+          id="customerID"
+          formControlName="customerID"
+        />
+    </div>
+</div>
+<div class="col-md-4 col-sm-4 col-lg-4">
+    <div class="form-group">
+        <label for="occupation">Occupation</label>
+        <input
+          type="text"
+          class="form-control"
+          id="occupation"
+          formControlName="occupation"
+        />
+    </div>
+</div>
+<div class="col-md-4 col-sm-4 col-lg-4">
+    <div class="form-group">
+        <label for="country">Country</label>
+        <input
+          type="text"
+          class="form-control"
+          id="country"
+          formControlName="country"
+        />
+    </div>
+</div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-4 col-sm-4 col-lg-4">
+        <div class="form-group">
+            <label for="state">State</label>
+            <input
+              type="text"
+              class="form-control"
+              id="state"
+              formControlName="state"
+            />
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4 col-lg-4">
+        <div class="form-group">
+            <label for="city">City</label>
+            <input
+              type="text"
+              class="form-control"
+              id="city"
+              formControlName="city"
+            />
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4 col-lg-4">
+        <div class="form-group">
+            <label for="zip">Zip</label>
+            <input
+              type="text"
+              class="form-control"
+              id="zip"
+              formControlName="zip"
+            />
+        </div>
+    </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-lg-4">
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="phone"
+                  formControlName="phone"
+                />
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-lg-4">
+            <div class="form-group">
+                <label for="flatNumber">FlatNumber</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="flatNumber"
+                  formControlName="flatNumber"
+                />
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-lg-4">
+            <div class="form-group">
+                <label for="street">Street</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="street"
+                  formControlName="street"
+                />
+            </div>
+        </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-lg-4">
+                <div class="form-group">
+                    <label for="income">Income</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="income"
+                      formControlName="income"
+                    />
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-lg-4">
+                <div class="form-group">
+                    <label for="FirmID">FirmID</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="FirmID"
+                      formControlName="FirmID"
+                    />
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-lg-4">
+                <div class="form-group">
+                    <label for="aadhaar">Aadhaar Number</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="aadhaar"
+                      formControlName="aadhaar"
+                    />
+                </div>
+            </div>
+          
+            </div>
+
+
+
+            
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-lg-4">
+                <div class="form-group">
+                    <label for="father_name">Father Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="father_name"
+                      formControlName="father_name"
+                    />
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-lg-4">
+                <div class="form-group">
+                    <label for="dob">DOB</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="dob"
+                      formControlName="dob"
+                    />
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-lg-4">
+                <div class="form-group">
+                    <label for="email">Email ID</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="email"
+                      formControlName="email"
+                    />
+                </div>
+            </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="fn">First Name</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="fn"
+                          formControlName="fn"
+                        />
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="mn">Middle Name</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="mn"
+                          formControlName="mn"
+                        />
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="ln">Last Name</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="ln"
+                          formControlName="ln"
+                        />
+                    </div>
+                </div>
+                </div>
+
+
+
+                <button class="btn btn-success" type="submit"
+                [disabled]="!detailsForm.valid" *ngIf="showUpdateButton">Update</button>
+
+            <!-- </fieldset> -->
+
+</form>
+<br/><br/>
+<footer>
+   
+    <button mat-raised-button (click)="closeModal()" style="float: right;">Close</button>
+</footer>

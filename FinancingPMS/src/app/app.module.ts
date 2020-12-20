@@ -16,7 +16,6 @@ import { EmailValidator } from "./validators/email-validator";
 import { DOBValidator } from "./validators/dob-validator";
 import { RegistrationLoginModule } from "../app/registration-login/registration-login.module";
 import { NotificationModule } from "./notification/notification.module";
-
 export function tokenGetter() {
   return localStorage.getItem("jwt");
 }

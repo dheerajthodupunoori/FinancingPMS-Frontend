@@ -10,7 +10,10 @@ import { ActiveAccountsComponent } from "../active-accounts/active-accounts.comp
 import { LoanTypesComponent } from "../loan-types/loan-types.component";
 import {  MatIconModule, MatSidenavModule, MatListModule, MatButtonModule } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-
+import { DataTablesModule } from 'angular-datatables';
+import { OwnerDashboardCustomerAdditionalDetailsComponent } from './owner-dashboard-customer-additional-details/owner-dashboard-customer-additional-details.component';
+import {MatDialogModule } from "@angular/material/dialog";
+import { OwnerSettingsComponent } from './owner-settings/owner-settings.component';
 
 @NgModule({
   declarations: [
@@ -20,15 +23,21 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     CreateCustomerComponent,
     CreateAgreementComponent,
     ActiveAccountsComponent,
-    LoanTypesComponent
+    LoanTypesComponent,
+    OwnerDashboardCustomerAdditionalDetailsComponent,
+    OwnerSettingsComponent
   ],
+  entryComponents:[OwnerDashboardCustomerAdditionalDetailsComponent],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
     MatIconModule,
+    DataTablesModule,
+    MatDialogModule,
     RouterModule.forChild([
       {
         path: "",
@@ -58,6 +67,10 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
             path: "loan-types",
             component: LoanTypesComponent,
           },
+          {
+            path:"owner-settings",
+            component:OwnerSettingsComponent
+          }
         ],
       },
     ]),

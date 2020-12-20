@@ -1,0 +1,22 @@
+[
+    {
+        "customerID":"1234",
+        "occupation":"Private",
+        "country":"India",
+        "state":"Telangana",
+        "city":"Nizamabad",
+        "street":"Seetha ram nagar colony",
+        "income":"10000000",
+        "zip":"503001",
+        "flatNumber":"10-14-1563/1",
+        "phone":"7680052728",
+        "FirmID":"0000",
+        "fn":"Dheeraj Thodupunuri",
+        "mn":"Middle name",
+        "ln":"Last name",
+        "FatherName" : "Dilip Raju",
+        "DOB":"19-07-1997",
+        "AadhaarNumber":"000000000000",
+        "EmailID":"dheeraj.thodupunoori01@gmail.com"
+    }
+]
