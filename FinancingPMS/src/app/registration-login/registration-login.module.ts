@@ -9,7 +9,7 @@ import { CustomerRegistrationComponent } from "./customer-registration/customer-
 import { CustomerAdditionalDetailsComponent } from "./customer-additional-details/customer-additional-details.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FirmResolver } from "./route-resolvers/firms-list-resolver.service";
-import { ConfirmPassword } from "../validators/password-confirmpwd-validator";
+// import { ConfirmPassword } from "../validators/password-confirmpwd-validator";
 import { UnsavedChangesGuard } from "../auth-guards/unsaved-changes.guard";
 
 const registrationLoginModuleRoutes: Routes = [
@@ -50,7 +50,7 @@ const registrationLoginModuleRoutes: Routes = [
     CustomerLoginComponent,
     CustomerAdditionalDetailsComponent,
     CustomerRegistrationComponent,
-    ConfirmPassword,
+    // ConfirmPassword,
   ],
   imports: [
     CommonModule,

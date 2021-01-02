@@ -14,7 +14,7 @@ import { Directive, Input } from "@angular/core";
 export class ConfirmPassword implements Validator {
   @Input() passwordValidator: string;
   validate(control: AbstractControl): { [Key: string]: any } | null {
-    // console.log(control);
+    console.log(this.passwordValidator);
     const controlToCompare = control.parent.get(this.passwordValidator);
     if (controlToCompare && controlToCompare.value !== control.value) {
       return { notEqual: true };

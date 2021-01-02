@@ -26,7 +26,6 @@ export function tokenGetter() {
     FooterComponent,
     LandingPageComponent,
     NavbarComponent,
-    // ConfirmPassword,
     AadhaarValidator,
     EmailValidator,
     DOBValidator,

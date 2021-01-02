@@ -8,7 +8,7 @@
     <li class="nav-item">
       <a class="navbar-brand" href="#">Contactus</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="loginStatus">
       <a
         class="navbar-brand"
         [routerLink]="[{ outlets: { notifications: ['messages'] } }]"

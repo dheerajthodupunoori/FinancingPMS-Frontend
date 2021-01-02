@@ -14,7 +14,11 @@ import { DataTablesModule } from 'angular-datatables';
 import { OwnerDashboardCustomerAdditionalDetailsComponent } from './owner-dashboard-customer-additional-details/owner-dashboard-customer-additional-details.component';
 import {MatDialogModule } from "@angular/material/dialog";
 import { OwnerSettingsComponent } from './owner-settings/owner-settings.component';
-
+import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatInputModule} from '@angular/material/input';
+import {SharedModule} from "../../app/shared/shared.module";
+import {MatDividerModule} from '@angular/material/divider';
 @NgModule({
   declarations: [
     OwnerDashboardComponent,
@@ -38,6 +42,11 @@ import { OwnerSettingsComponent } from './owner-settings/owner-settings.componen
     MatIconModule,
     DataTablesModule,
     MatDialogModule,
+    MatCardModule,
+    MatExpansionModule,
+    MatInputModule,
+    SharedModule,
+    MatDividerModule,
     RouterModule.forChild([
       {
         path: "",

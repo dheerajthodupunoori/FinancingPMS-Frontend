@@ -1,1 +1,148 @@
-<p>owner-settings works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            Firm Details
+        </mat-card-title>
+    </mat-card-header>
+    <br/>
+    <mat-card-content>
+        <form (ngSubmit)="updateFirmDetails()" [formGroup]="editFirmForm">
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="firmName">Firm Name</label>
+                        <input type="text" class="form-control" id="firmName" formControlName="firmName" />
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="firmID">Firm ID</label>
+                        <input type="text" class="form-control" id="firmID" formControlName="firmID" />
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" formControlName="email" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="phone">Contact</label>
+                        <input type="text" class="form-control" id="phone" formControlName="phone" />
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="address1">Address1</label>
+                        <input type="text" class="form-control" id="address1" formControlName="address1" />
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="address2">Address2</label>
+                        <input type="text" class="form-control" id="address2" formControlName="address2" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" formControlName="city" />
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" class="form-control" id="state" formControlName="state" />
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="zip">Zip</label>
+                        <input type="text" class="form-control" id="zip" formControlName="zip" />
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <button class="btn btn-success" type="submit" style="margin-right: 5px;" [disabled]="!editFirmForm.valid" *ngIf="showUpdateButton">Update</button>
+
+            <button class="btn btn-info" type="button" (click)="onEditClick()" *ngIf="showEditButton">Edit</button>
+
+        </form>
+    </mat-card-content>
+</mat-card>
+<br/>
+<mat-divider></mat-divider>
+<br/>
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Update Password
+        </mat-panel-title>
+        <mat-panel-description>
+            Update your password
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-card>
+        <form class="password-update-form" (ngSubmit)="updatePassword()">
+
+            <mat-form-field class="old-password" style="margin: 50px;">
+                <mat-label>Old Password</mat-label>
+                <input type="password" matInput [formControl]="oldpassword" placeholder="Old Password" id="old-password">
+                <mat-hint>Enter your old Password</mat-hint>
+                <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Please enter a valid email address
+                </mat-error> -->
+                <mat-error *ngIf="oldpassword.hasError('required')">
+                    Password is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="new-password" style="margin: 50px;">
+                <mat-label>New Password</mat-label>
+                <input type="password" matInput placeholder="New Password" [formControl]="newpassword">
+                <mat-hint>Enter your new Password</mat-hint>
+                <mat-error *ngIf="newpassword.hasError('required')">
+                    New password is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="confirm-new-password" style="margin: 50px;">
+                <mat-label>Confirm New Password</mat-label>
+                <input type="password" matInput placeholder="Confirm New Password" [formControl]="confirmpassword">
+                <mat-hint>Re-enter new Password</mat-hint>
+                <mat-error *ngIf="confirmpassword.hasError('required')">
+                    Confirm new password is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit">Update Password</button>
+
+        </form>
+    </mat-card>
+</mat-expansion-panel>
+<br/>
+<mat-divider></mat-divider>
+<br/>
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Upload/Update Profile
+        </mat-panel-title>
+        <mat-panel-description>
+            Update your Firm Prfoile or Upload your Firm Profile
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+</mat-expansion-panel>
+<br/>
+<mat-divider></mat-divider>
+<br/>
