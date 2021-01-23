@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { OldPasswordService } from 'src/app/Services/oldpassword.service';
+import { oldPasswordValidator } from 'src/app/validators/old-password-validator';
 import * as firmDetails from "../../../mock-data/firm-details.json";
 
 @Component({
@@ -7,7 +9,7 @@ import * as firmDetails from "../../../mock-data/firm-details.json";
   templateUrl: './owner-settings.component.html',
   styleUrls: ['./owner-settings.component.css']
 })
-export class OwnerSettingsComponent implements OnInit {
+export class OwnerSettingsComponent implements OnInit{
 
   public editFirmForm: FormGroup;
 
@@ -18,7 +20,7 @@ export class OwnerSettingsComponent implements OnInit {
   newpassword:FormControl;
   confirmpassword:FormControl;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private _oldPasswordService:OldPasswordService) { }
 
   ngOnInit() {
 
@@ -39,9 +41,12 @@ export class OwnerSettingsComponent implements OnInit {
 
     this.editFirmForm.disable();
 
-    this.oldpassword = new FormControl('', [
-      Validators.required
-    ]);
+    this.oldpassword = new FormControl('',{
+      validators :[Validators.required],
+      asyncValidators:[oldPasswordValidator(this._oldPasswordService,this.firmDetails.default.firmID)],
+      updateOn:'blur'
+   }
+    );
     this.newpassword = new FormControl('', [
       Validators.required
     ]);
@@ -50,7 +55,7 @@ export class OwnerSettingsComponent implements OnInit {
     ]);
 
   }
-
+  
   onEditClick()
   {
     this.showUpdateButton = true;
@@ -72,6 +77,9 @@ export class OwnerSettingsComponent implements OnInit {
   updatePassword()
   {
     console.log("Password updated");
+    console.log(this.oldpassword);
+    console.log(this.confirmpassword);
+    console.log(this.newpassword);
   }
 
 }

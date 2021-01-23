@@ -99,9 +99,9 @@
                 <mat-label>Old Password</mat-label>
                 <input type="password" matInput [formControl]="oldpassword" placeholder="Old Password" id="old-password">
                 <mat-hint>Enter your old Password</mat-hint>
-                <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                    Please enter a valid email address
-                </mat-error> -->
+                <mat-error *ngIf="oldpassword.hasError('notmatched')">
+                    Entered old password is not correct.Please enter correct Password.
+                </mat-error>
                 <mat-error *ngIf="oldpassword.hasError('required')">
                     Password is <strong>required</strong>
                 </mat-error>
