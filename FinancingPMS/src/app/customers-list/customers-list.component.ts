@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as customers from "../../mock-data/customers-list.json";
 import {MatDialog , MatDialogConfig} from "@angular/material/dialog";
+import {ConvertToPDFService} from "../shared/services/ConvertToPDFServicet";
 import {OwnerDashboardCustomerAdditionalDetailsComponent} from "../owner-dashboard/owner-dashboard-customer-additional-details/owner-dashboard-customer-additional-details.component"
 declare var $;
 
@@ -13,6 +14,7 @@ export class CustomersListComponent implements OnInit {
 
   customers: any;
   headers = ["profile", "CustomerID", "Name", "FirmID", "phone" , "EmailID" , "AadhaarNumber"];
+  pdf_headers = [["AadhaarNumber" , "CustomerID","EmailID","FirmID","Name","phone"]];
   dtOptions: DataTables.Settings = {};
   viewDeletedCustomers : boolean = false;
   isViewDeletedCustomersEnabled : boolean = true;
@@ -22,7 +24,7 @@ export class CustomersListComponent implements OnInit {
 
 
 
-  constructor(public matDialog : MatDialog) { }
+  constructor(public matDialog : MatDialog,public _convertToPDFService:ConvertToPDFService) { }
 
   ngOnInit() {
     this.dtOptions = {
@@ -62,6 +64,11 @@ export class CustomersListComponent implements OnInit {
     this.viewDeletedCustomers = !this.viewDeletedCustomers;
     this.isViewDeletedCustomersEnabled = !this.isViewDeletedCustomersEnabled;
     this.isCloseDeletedCustomersEnabled = !this.isCloseDeletedCustomersEnabled;
+  }
+
+  downloadPDF()
+  {
+    this._convertToPDFService.convertCustomerListToPDF(this.customers.default,this.pdf_headers);
   }
 
 }
