@@ -11,6 +11,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FirmResolver } from "./route-resolvers/firms-list-resolver.service";
 // import { ConfirmPassword } from "../validators/password-confirmpwd-validator";
 import { UnsavedChangesGuard } from "../auth-guards/unsaved-changes.guard";
+import { NgxSpinnerModule } from "ngx-spinner";
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const registrationLoginModuleRoutes: Routes = [
   {
@@ -56,6 +59,18 @@ const registrationLoginModuleRoutes: Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxSpinnerModule,
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      // positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      closeButton: true,
+      progressBar: true,
+      maxOpened: 1,
+      autoDismiss: true,
+      enableHtml: true
+    }), 
+    BrowserAnimationsModule,
     RouterModule.forChild(registrationLoginModuleRoutes),
   ],
   providers: [UnsavedChangesGuard],

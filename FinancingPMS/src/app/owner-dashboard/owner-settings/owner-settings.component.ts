@@ -63,6 +63,11 @@ export class OwnerSettingsComponent implements OnInit{
     console.log(this.editFirmForm);
     this.editFirmForm.controls["email"].enable();
     this.editFirmForm.controls["phone"].enable();
+    this.editFirmForm.controls["address1"].enable();
+    this.editFirmForm.controls["address2"].enable();
+    this.editFirmForm.controls["city"].enable();
+    this.editFirmForm.controls["state"].enable();
+    this.editFirmForm.controls["zip"].enable();
   }
 
   updateFirmDetails()
@@ -72,6 +77,11 @@ export class OwnerSettingsComponent implements OnInit{
     this.showEditButton = true;
     this.editFirmForm.controls["email"].disable();
     this.editFirmForm.controls["phone"].disable();
+    this.editFirmForm.controls["address1"].disable();
+    this.editFirmForm.controls["address2"].disable();
+    this.editFirmForm.controls["city"].disable();
+    this.editFirmForm.controls["state"].disable();
+    this.editFirmForm.controls["zip"].disable();
   }
 
   updatePassword()

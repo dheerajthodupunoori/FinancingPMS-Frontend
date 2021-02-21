@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { Firm } from "../../Models/firm";
 import { RegisterService } from "../../Services/register.service";
 import { Router } from "@angular/router";
+import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: "app-firm-registration",
@@ -19,9 +21,13 @@ export class FirmRegistrationComponent implements OnInit {
 
   public response: any;
 
+  spinnerText : string = "Loading..."
+
   constructor(
     private registerService: RegisterService,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -50,6 +56,8 @@ export class FirmRegistrationComponent implements OnInit {
   }
 
   async RegisterFirm() {
+    this.spinnerText = "Registering your Firm. Please wait ."
+    this.spinner.show();
     await this.registerService.registerService(this.firm).subscribe((data) => {
       console.log("Firm registration response ", data);
       this.registrationStatus = data.registrationStatus;
@@ -59,6 +67,13 @@ export class FirmRegistrationComponent implements OnInit {
       } else {
         this.firmRegistrationErrorMessage = data.errorDetails[0];
       }
+    },
+    (error)=>{
+      console.log(error);
+      this.spinner.hide();
+      this.toastr.error("Firm Registration failed!",error["mesage"],{
+        positionClass:'toast-bottom-right'
+      });
     });
   }
 }
