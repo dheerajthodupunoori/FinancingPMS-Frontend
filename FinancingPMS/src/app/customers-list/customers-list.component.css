@@ -1,4 +1,15 @@
-#deletedCustomers{
+#deletedCustomers {
     padding: 15px;
-    
+}
+
+.download-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.download-pdf,
+.download-excel {
+    margin: 10px;
 }

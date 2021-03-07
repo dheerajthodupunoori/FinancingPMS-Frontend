@@ -1,5 +1,5 @@
 <section class="owner-customers-list">
-    <table datatable [dtOptions]="dtOptions" style="width: 100%;">
+    <table datatable [dtOptions]="dtOptions" style="width: 100%;" id="active-customers">
         <thead>
             <tr>
                 <th>Profile</th>
@@ -30,7 +30,11 @@
     </table>
 </section>
 
-<button class="btn btn-primary" (click)="downloadPDF()">Download PDF</button>
+<div class="download-buttons">
+    <button class="btn btn-primary download-pdf" (click)="downloadPDF()">Download PDF</button>
+    <button class="btn btn-primary download-excel" (click)="downloadExcel()">Download Excel</button>
+</div>
+
 
 <br/><br/>
 <button class="btn btn-info" (click)="viewDeletedCustomersEvent()" *ngIf="isViewDeletedCustomersEnabled">View Deleted Customers</button>
